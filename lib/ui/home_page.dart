@@ -15,11 +15,12 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.black,
+        iconTheme: IconThemeData(color: Colors.grey.shade400),
         centerTitle: true,
         title: Text(
           "Meet",
           style: TextStyle(
-              color: Colors.white,
+              color: Colors.grey.shade400,
               fontFamily: 'Avenir',
               fontWeight: FontWeight.w500),
         ),
