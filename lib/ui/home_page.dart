@@ -10,6 +10,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      drawer: Drawer(),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          "Meet",
+          style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Avenir',
+              fontWeight: FontWeight.w500),
+        ),
+      ),
+    );
   }
 }
