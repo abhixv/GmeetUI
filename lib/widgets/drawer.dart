@@ -24,9 +24,6 @@ class MyDrawer extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
-              Divider(
-                color: Colors.white,
-              ),
               SizedBox(
                 height: 20,
               ),

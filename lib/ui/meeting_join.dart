@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gmeet/widgets/camera.dart';
 
 class MeetingJoin extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                   color: Colors.white, fontSize: 25, fontFamily: 'Avenir'),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(15.0),
               child: Stack(
                 children: [
                   Container(
@@ -33,21 +34,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10)),
-                  ),
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    left: 0,
-                    bottom: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      "assets/images/profile_img.jpg")))),
-                    ),
+                    child: Camera(),
                   ),
                 ],
               ),

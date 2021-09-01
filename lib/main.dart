@@ -3,8 +3,17 @@ import 'package:gmeet/ui/home_page.dart';
 import 'package:gmeet/ui/meeting_join.dart';
 import 'package:gmeet/ui/meeting_search.dart';
 import 'package:gmeet/utils/routes.dart';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+import 'package:gmeet/widgets/camera.dart';
 
-void main() {
+List<CameraDescription>? cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
