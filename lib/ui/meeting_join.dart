@@ -21,15 +21,15 @@ class _MeetingJoinState extends State<MeetingJoin> {
             Text(
               "qfk-fwhc-zyn",
               style: TextStyle(
-                  color: Colors.white, fontSize: 20, fontFamily: 'Avenir'),
+                  color: Colors.white, fontSize: 25, fontFamily: 'Avenir'),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Stack(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.27,
-                    width: MediaQuery.of(context).size.width / 3.3,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    width: MediaQuery.of(context).size.width / 3,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10)),
@@ -65,7 +65,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     child: Icon(
                       Icons.video_call,
                       color: Colors.grey,
-                      size: 25,
+                      size: 30,
                     ),
                   ),
                 ),
@@ -81,7 +81,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     child: Icon(
                       Icons.mic,
                       color: Colors.grey,
-                      size: 25,
+                      size: 30,
                     ),
                   ),
                 ),
@@ -89,8 +89,8 @@ class _MeetingJoinState extends State<MeetingJoin> {
                   width: 10,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: MediaQuery.of(context).size.width / 5,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width / 4,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: Colors.blue),

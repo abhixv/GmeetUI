@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gmeet/utils/routes.dart';
+import 'package:gmeet/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,17 +15,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: Drawer(),
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.black,
         iconTheme: IconThemeData(
-          color: Color(0xfff9f9fa),
+          color: Colors.grey,
         ),
         centerTitle: true,
         title: Text(
           "Meet",
           style: TextStyle(
-              color: Color(0xfff9f9fa),
+              color: Colors.grey,
               fontFamily: 'Avenir',
               fontWeight: FontWeight.w500),
         ),
@@ -48,8 +49,6 @@ class _HomePageState extends State<HomePage> {
                       height: MediaQuery.of(context).size.height * 0.05,
                       decoration: BoxDecoration(
                           color: Color(0xff89b5f9),
-                          border:
-                              Border.all(color: Color(0xfff9f9fa), width: 0.7),
                           borderRadius: BorderRadius.circular(5)),
                       child: Center(
                         child: Text(
@@ -73,8 +72,7 @@ class _HomePageState extends State<HomePage> {
                       width: MediaQuery.of(context).size.width * 0.4,
                       height: MediaQuery.of(context).size.height * 0.05,
                       decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Color(0xfff9f9fa), width: 0.7),
+                          border: Border.all(color: Colors.grey, width: 0.7),
                           borderRadius: BorderRadius.circular(5)),
                       child: Center(
                         child: Text(
@@ -96,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * _height,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xfff9f9fa), width: 0.7),
+                      border: Border.all(color: Colors.grey, width: 0.7),
                       borderRadius: BorderRadius.circular(8)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "Your account lets you join meetings, but not\ncreate them",
                                     style: TextStyle(
-                                        color: Color(0xfff9f9fa),
+                                        color: Colors.grey,
                                         fontWeight: FontWeight.w500,
                                         fontFamily: 'Avenir'),
                                   ),
@@ -158,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                           child: Text(
                                             "Dismiss",
                                             style: TextStyle(
-                                                color: Color(0xfff9f9fa),
+                                                color: Colors.grey,
                                                 fontWeight: FontWeight.w500,
                                                 fontFamily: 'Avenir'),
                                           ),
@@ -183,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "MEETINGS",
                     style: TextStyle(
-                        color: Color(0xfff9f9fa),
+                        color: Colors.grey,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Avenir',
                         fontSize: 12),
@@ -215,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                       Icon(
                         Icons.link,
                         size: 28,
-                        color: Color(0xfff9f9fa),
+                        color: Colors.grey,
                       ),
                       SizedBox(
                         width: 10,
@@ -224,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                         "Get a meeting link to share",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Color(0xfff9f9fa),
+                          color: Colors.grey,
                           fontFamily: 'Avenir',
                         ),
                       )
@@ -238,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                       Icon(
                         Icons.video_call,
                         size: 28,
-                        color: Color(0xfff9f9fa),
+                        color: Colors.grey,
                       ),
                       SizedBox(
                         width: 10,
@@ -247,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                         "Start an instant meeting",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Color(0xfff9f9fa),
+                          color: Colors.grey,
                           fontFamily: 'Avenir',
                         ),
                       )
@@ -263,7 +261,7 @@ class _HomePageState extends State<HomePage> {
                         child: Icon(
                           Icons.calendar_today,
                           size: 18,
-                          color: Color(0xfff9f9fa),
+                          color: Colors.grey,
                         ),
                       ),
                       SizedBox(
@@ -273,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                         "Schedule in Google Calendar",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Color(0xfff9f9fa),
+                          color: Colors.grey,
                           fontFamily: 'Avenir',
                         ),
                       )
@@ -285,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                     Icon(
                       Icons.close_sharp,
                       size: 28,
-                      color: Color(0xfff9f9fa),
+                      color: Colors.grey,
                     ),
                     SizedBox(
                       width: 10,
@@ -294,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                       "Close",
                       style: TextStyle(
                         fontSize: 18,
-                        color: Color(0xfff9f9fa),
+                        color: Colors.grey,
                         fontFamily: 'Avenir',
                       ),
                     )
