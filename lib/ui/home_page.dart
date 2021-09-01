@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, MyRoutes.meetingJoin);
+                      Navigator.pushNamed(context, MyRoutes.meetingSearch);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.4,

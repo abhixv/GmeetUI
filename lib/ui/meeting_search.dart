@@ -1,20 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gmeet/ui/meeting_join.dart';
+import 'package:gmeet/utils/routes.dart';
 
-class MeetingJoin extends StatefulWidget {
-  const MeetingJoin({Key? key}) : super(key: key);
+class MeetingSearch extends StatefulWidget {
+  const MeetingSearch({Key? key}) : super(key: key);
 
   @override
-  _MeetingJoinState createState() => _MeetingJoinState();
+  _MeetingSearchState createState() => _MeetingSearchState();
 }
 
-class _MeetingJoinState extends State<MeetingJoin> {
+class _MeetingSearchState extends State<MeetingSearch> {
   Color _join = Colors.grey;
   final _controller = TextEditingController();
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     _controller.dispose();
     super.dispose();
   }
@@ -30,7 +31,9 @@ class _MeetingJoinState extends State<MeetingJoin> {
           Padding(
             padding: const EdgeInsets.only(right: 15),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.meetingJoin);
+              },
               child: Container(
                 child: Center(
                   child: Text(
@@ -81,9 +84,6 @@ class _MeetingJoinState extends State<MeetingJoin> {
                       },
                       style:
                           TextStyle(color: Colors.grey, fontFamily: 'Avenir'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Example: abc-mnop-xyz",

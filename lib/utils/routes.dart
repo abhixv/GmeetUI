@@ -1,4 +1,5 @@
 class MyRoutes {
   static String homeRoute = "/home";
-  static String meetingJoin = "/code";
+  static String meetingSearch = "/code";
+  static String meetingJoin = "/join";
 }

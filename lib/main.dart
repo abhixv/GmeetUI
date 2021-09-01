@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gmeet/ui/home_page.dart';
+import 'package:gmeet/ui/meeting_join.dart';
 import 'package:gmeet/ui/meeting_search.dart';
 import 'package:gmeet/utils/routes.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       initialRoute: MyRoutes.homeRoute,
       routes: {
+        MyRoutes.meetingSearch: (context) => MeetingSearch(),
         MyRoutes.meetingJoin: (context) => MeetingJoin(),
       },
     );
