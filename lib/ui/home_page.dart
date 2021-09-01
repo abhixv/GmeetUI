@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gmeet/utils/routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -65,7 +66,9 @@ class _HomePageState extends State<HomePage> {
                     width: 12,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, MyRoutes.meetingJoin);
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.4,
                       height: MediaQuery.of(context).size.height * 0.05,
