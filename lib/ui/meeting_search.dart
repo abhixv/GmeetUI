@@ -32,7 +32,12 @@ class _MeetingSearchState extends State<MeetingSearch> {
             padding: const EdgeInsets.only(right: 15),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.meetingJoin);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MeetingJoin(
+                              data: _controller.text,
+                            )));
               },
               child: Container(
                 child: Center(

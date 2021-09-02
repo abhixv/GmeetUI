@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+
 import 'package:gmeet/widgets/camera.dart';
 
 class MeetingJoin extends StatefulWidget {
+  final String data;
+  const MeetingJoin({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
   @override
-  _MeetingJoinState createState() => _MeetingJoinState();
+  _MeetingJoinState createState() => _MeetingJoinState(data);
 }
 
 class _MeetingJoinState extends State<MeetingJoin> {
+  final String data;
+
+  _MeetingJoinState(this.data);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +29,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "qfk-fwhc-zyn",
+              "$data",
               style: TextStyle(
                   color: Colors.white, fontSize: 25, fontFamily: 'Avenir'),
             ),

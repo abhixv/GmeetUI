@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
       initialRoute: MyRoutes.homeRoute,
       routes: {
         MyRoutes.meetingSearch: (context) => MeetingSearch(),
-        MyRoutes.meetingJoin: (context) => MeetingJoin(),
       },
     );
   }
