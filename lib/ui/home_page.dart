@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gmeet/ui/Instant_meeting_page.dart';
 import 'package:gmeet/utils/routes.dart';
 import 'package:gmeet/widgets/drawer.dart';
 
@@ -42,7 +43,122 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   InkWell(
                     onTap: () {
-                      _popcard(context);
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext c) {
+                            return Container(
+                              padding: EdgeInsets.only(left: 15),
+                              height: MediaQuery.of(context).size.height * 0.24,
+                              width: MediaQuery.of(context).size.width,
+                              color: Colors.black,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 15, top: 15),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.link,
+                                          size: 28,
+                                          color: Colors.grey,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          "Get a meeting link to share",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.grey,
+                                            fontFamily: 'Avenir',
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, MyRoutes.instantMeeting);
+                                    },
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 15),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.video_call,
+                                            size: 28,
+                                            color: Colors.grey,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Start an instant meeting",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.grey,
+                                              fontFamily: 'Avenir',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 15),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 5),
+                                          child: Icon(
+                                            Icons.calendar_today,
+                                            size: 18,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 15,
+                                        ),
+                                        Text(
+                                          "Schedule in Google Calendar",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.grey,
+                                            fontFamily: 'Avenir',
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.close_sharp,
+                                        size: 28,
+                                        color: Colors.grey,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Close",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.grey,
+                                          fontFamily: 'Avenir',
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          });
+                      ;
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.4,
@@ -193,114 +309,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  void _popcard(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext c) {
-          return Container(
-            padding: EdgeInsets.all(12),
-            height: MediaQuery.of(context).size.height * 0.24,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.black,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.link,
-                        size: 28,
-                        color: Colors.grey,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Get a meeting link to share",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontFamily: 'Avenir',
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.video_call,
-                        size: 28,
-                        color: Colors.grey,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Start an instant meeting",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontFamily: 'Avenir',
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.calendar_today,
-                          size: 18,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        "Schedule in Google Calendar",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontFamily: 'Avenir',
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.close_sharp,
-                      size: 28,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Close",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.grey,
-                        fontFamily: 'Avenir',
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          );
-        });
   }
 }
