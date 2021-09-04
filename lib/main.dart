@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         MyRoutes.meetingSearch: (context) => MeetingSearch(),
-        MyRoutes.instantMeeting: (context) => InstantMeeting(),
       },
     );
   }

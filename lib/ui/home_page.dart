@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gmeet/ui/Instant_meeting_page.dart';
 import 'package:gmeet/utils/routes.dart';
 import 'package:gmeet/widgets/drawer.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double _height = 0.15;
+  String id = getRandomString();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,34 +58,45 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.black,
                               child: Column(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        bottom: 15, top: 15),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.link,
-                                          size: 28,
-                                          color: Colors.grey,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          "Get a meeting link to share",
-                                          style: TextStyle(
-                                            fontSize: 18,
+                                  InkWell(
+                                    onTap: () {
+                                      _openPopup(context, id);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          bottom: 15, top: 15),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.link,
+                                            size: 28,
                                             color: Colors.grey,
-                                            fontFamily: 'Avenir',
                                           ),
-                                        )
-                                      ],
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Get a meeting link to share",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.grey,
+                                              fontFamily: 'Avenir',
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.pushNamed(
-                                          context, MyRoutes.instantMeeting);
+                                      setState(() {
+                                        id = getRandomString();
+                                      });
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  InstantMeeting(id: id)));
                                     },
                                     child: Padding(
                                       padding:
@@ -310,4 +326,121 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+String getRandomString() {
+  int length = 8;
+  const _chars = 'abcdefghijklmnopqrstvuwxyz';
+  Random _r = Random();
+  String s = String.fromCharCodes(Iterable.generate(
+      length, (_) => _chars.codeUnitAt(_r.nextInt(_chars.length))));
+  String i = s.substring(0, 3) +
+      "-" +
+      s.substring(3, 7) +
+      "_" +
+      s.substring(5, s.length);
+  return i;
+}
+
+_openPopup(context, String id) {
+  Alert(
+    context: context,
+    style: AlertStyle(
+      backgroundColor: Colors.black,
+      animationType: AnimationType.grow,
+      overlayColor: Colors.transparent.withOpacity(0.3),
+      isCloseButton: true,
+      isButtonVisible: false,
+      isOverlayTapDismiss: true,
+      animationDuration: Duration(milliseconds: 300),
+      alertBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+    content: Column(
+      children: [
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            "Here's the link to your meeting",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Avenir',
+                fontWeight: FontWeight.bold,
+                fontSize: 14),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            "Copy this link and send it to people that you want to meet with. Make sure that you save it so that you can use it later, too.",
+            style: TextStyle(
+                color: Colors.grey, fontFamily: 'Avenir', fontSize: 12),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+            padding: EdgeInsets.only(left: 10),
+            alignment: Alignment.center,
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.height * 0.05,
+            decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "meet.google.com/$id",
+                  style: TextStyle(
+                      color: Colors.white, fontFamily: 'Avenir', fontSize: 14),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Icon(
+                      Icons.copy_rounded,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+              ],
+            )),
+        SizedBox(
+          height: 15,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width / 2.5,
+          height: MediaQuery.of(context).size.height * 0.046,
+          child: ElevatedButton(
+              onPressed: () {},
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.share,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Share invitation",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Avenir',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              )),
+        ),
+      ],
+    ),
+  ).show();
 }

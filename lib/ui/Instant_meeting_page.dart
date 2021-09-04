@@ -4,17 +4,23 @@ import 'package:gmeet/utils/routes.dart';
 import 'package:gmeet/widgets/camera.dart';
 
 class InstantMeeting extends StatefulWidget {
-  const InstantMeeting({Key? key}) : super(key: key);
+  final String id;
+  const InstantMeeting({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
 
   @override
-  _InstantMeetingState createState() => _InstantMeetingState();
+  _InstantMeetingState createState() => _InstantMeetingState(id: id);
 }
 
 class _InstantMeetingState extends State<InstantMeeting> {
-  String id = getRandomString();
+  final String id;
   int pos = 0;
   bool isPressed = true;
   bool camOn = true;
+
+  _InstantMeetingState({required this.id});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -292,18 +298,4 @@ cameraOn(bool camOn, int pos) {
   } else {
     return null;
   }
-}
-
-String getRandomString() {
-  int length = 8;
-  const _chars = 'abcdefghijklmnopqrstvuwxyz';
-  Random _r = Random();
-  String s = String.fromCharCodes(Iterable.generate(
-      length, (_) => _chars.codeUnitAt(_r.nextInt(_chars.length))));
-  String i = s.substring(0, 3) +
-      "-" +
-      s.substring(3, 7) +
-      "_" +
-      s.substring(5, s.length);
-  return i;
 }
