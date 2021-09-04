@@ -1,20 +1,30 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+
 import '../main.dart';
 
 class Camera extends StatefulWidget {
+  int pos;
+  Camera({
+    Key? key,
+    required this.pos,
+  }) : super(key: key);
   @override
-  _CameraState createState() => _CameraState();
+  _CameraState createState() => _CameraState(pos: pos);
 }
 
 class _CameraState extends State<Camera> {
   CameraController? controller;
+  int pos;
+
+  _CameraState({required this.pos});
 
   @override
   void initState() {
     super.initState();
-    controller = CameraController(cameras![1], ResolutionPreset.max);
+    controller = CameraController(cameras![pos], ResolutionPreset.max);
     controller!.initialize().then((_) {
       if (!mounted) {
         return;

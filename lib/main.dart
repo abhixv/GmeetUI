@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      initialRoute: MyRoutes.homeRoute,
       routes: {
         MyRoutes.meetingSearch: (context) => MeetingSearch(),
         MyRoutes.instantMeeting: (context) => InstantMeeting(),

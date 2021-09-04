@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:gmeet/utils/routes.dart';
 import 'package:gmeet/widgets/camera.dart';
@@ -12,7 +11,8 @@ class InstantMeeting extends StatefulWidget {
 }
 
 class _InstantMeetingState extends State<InstantMeeting> {
-  String id = "dvj-jfoe-vhb";
+  String id = getRandomString();
+  int pos = 0;
   bool isPressed = true;
   bool camOn = true;
   @override
@@ -29,9 +29,20 @@ class _InstantMeetingState extends State<InstantMeeting> {
             ),
           ),
           actions: [
-            Icon(
-              Icons.cameraswitch_rounded,
-              color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (pos == 0) {
+                    pos = 1;
+                  } else {
+                    pos = 0;
+                  }
+                });
+              },
+              child: Icon(
+                Icons.cameraswitch_rounded,
+                color: Colors.white,
+              ),
             ),
             SizedBox(
               width: 20,
@@ -88,7 +99,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "meet.google.com/",
+                        "meet.google.com/$id",
                         style: TextStyle(
                           color: Colors.grey,
                           fontFamily: 'Avenir',
@@ -166,7 +177,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(10)),
-                      child: cameraOn(camOn),
+                      child: cameraOn(camOn, pos),
                     ),
                   ],
                 ),
@@ -273,10 +284,26 @@ changeIcon(bool isPressed) {
   }
 }
 
-cameraOn(bool camOn) {
+cameraOn(bool camOn, int pos) {
   if (camOn == true) {
-    return Camera();
+    return Camera(
+      pos: pos,
+    );
   } else {
     return null;
   }
+}
+
+String getRandomString() {
+  int length = 8;
+  const _chars = 'abcdefghijklmnopqrstvuwxyz';
+  Random _r = Random();
+  String s = String.fromCharCodes(Iterable.generate(
+      length, (_) => _chars.codeUnitAt(_r.nextInt(_chars.length))));
+  String i = s.substring(0, 3) +
+      "-" +
+      s.substring(3, 7) +
+      "_" +
+      s.substring(5, s.length);
+  return i;
 }

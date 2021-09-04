@@ -43,7 +43,9 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10)),
-                    child: Camera(),
+                    child: Camera(
+                      pos: 1,
+                    ),
                   ),
                 ],
               ),
