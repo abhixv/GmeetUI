@@ -17,16 +17,19 @@ class InstantMeeting extends StatefulWidget {
 class _InstantMeetingState extends State<InstantMeeting> {
   final String id;
   int pos = 0;
-  bool isPressed = true;
-  bool camOn = true;
+  bool isPressed = false;
+  bool camOn = false;
+  bool micOn = false;
+  bool micIsPressed = false;
 
   _InstantMeetingState({required this.id});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xff2d2e30),
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color(0xff2d2e30),
+          elevation: 0.0,
           title: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
@@ -155,7 +158,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                         children: [
                           Icon(
                             Icons.share,
-                            color: Colors.black,
+                            color: Color(0xff2d2e30),
                           ),
                           SizedBox(
                             width: 8,
@@ -163,7 +166,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                           Text(
                             "Share invite",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color(0xff2d2e30),
                               fontFamily: 'Avenir',
                               fontWeight: FontWeight.bold,
                             ),
@@ -220,7 +223,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                           border: Border.all(color: Colors.grey)),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: InkWell(
+                        child: GestureDetector(
                             onTap: () {
                               setState(() {
                                 if (camOn == true) {
@@ -238,16 +241,25 @@ class _InstantMeetingState extends State<InstantMeeting> {
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.grey)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Icon(
-                          Icons.mic,
-                          color: Colors.white,
-                          size: 25,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (micOn == true) {
+                            micOn = false;
+                            micIsPressed = false;
+                          } else {
+                            micOn = true;
+                            micIsPressed = true;
+                          }
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.grey)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: micChange(micIsPressed),
                         ),
                       ),
                     ),
@@ -271,6 +283,22 @@ class _InstantMeetingState extends State<InstantMeeting> {
                 ),
               ],
             )));
+  }
+}
+
+micChange(bool micIsPressed) {
+  if (micIsPressed == true) {
+    return Icon(
+      Icons.mic,
+      color: Colors.white,
+      size: 25,
+    );
+  } else {
+    return Icon(
+      Icons.mic_off,
+      color: Colors.white,
+      size: 25,
+    );
   }
 }
 

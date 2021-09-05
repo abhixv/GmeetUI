@@ -23,10 +23,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xff2d2e30),
       drawer: MyDrawer(),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        elevation: 0.0,
+        backgroundColor: Color(0xff2d2e30),
         iconTheme: IconThemeData(
           color: Colors.grey,
         ),
@@ -40,160 +41,167 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           GestureDetector(
-            onTap: () {
-              Alert(
-                context: context,
-                style: AlertStyle(
-                  alertPadding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.14),
-                  alertAlignment: Alignment.topCenter,
-                  backgroundColor: Colors.grey.shade800,
-                  animationType: AnimationType.grow,
-                  overlayColor: Colors.transparent.withOpacity(0.3),
-                  isCloseButton: true,
-                  isButtonVisible: false,
-                  isOverlayTapDismiss: true,
-                  animationDuration: Duration(milliseconds: 300),
-                  alertBorder: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              onTap: () {
+                Alert(
+                  context: context,
+                  style: AlertStyle(
+                    alertPadding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.14),
+                    alertAlignment: Alignment.topCenter,
+                    backgroundColor: Color(0xff2d2e30),
+                    animationType: AnimationType.grow,
+                    overlayColor: Colors.transparent,
+                    isCloseButton: true,
+                    isButtonVisible: false,
+                    isOverlayTapDismiss: true,
+                    animationDuration: Duration(milliseconds: 300),
+                    alertBorder: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                ),
-                content: Container(
-                    width: MediaQuery.of(context).size.width * 0.84,
-                    height: MediaQuery.of(context).size.height * 0.31,
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Google",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'Avenir',
-                                fontWeight: FontWeight.bold),
+                  content: Container(
+                      width: MediaQuery.of(context).size.width * 0.84,
+                      height: MediaQuery.of(context).size.height * 0.31,
+                      alignment: Alignment.topLeft,
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Google",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontFamily: 'Avenir',
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height / 8,
-                                  width: MediaQuery.of(context).size.width / 8,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/profile_img.jpg"))),
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Abhishek Sharma",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white,
-                                            fontFamily: 'Avenir',
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        "abhixv.sh@gmail.com",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.white,
-                                            fontFamily: 'Avenir',
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                1.65,
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey.shade800,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            border: Border.all(
-                                                color: Colors.white)),
-                                        child: Center(
-                                          child: Text(
-                                              "Manage your Google Account",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.white,
-                                                  fontFamily: 'Avenir',
-                                                  fontWeight: FontWeight.bold)),
-                                        ),
-                                      ),
-                                    ],
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.height / 8,
+                                    width:
+                                        MediaQuery.of(context).size.width / 8,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/images/profile_img.jpg"))),
                                   ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          color: Colors.white,
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Icon(
-                                Icons.person_add_alt_outlined,
-                                color: Colors.white,
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Abhishek Sharma",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white,
+                                              fontFamily: 'Avenir',
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "abhixv.sh@gmail.com",
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                              fontFamily: 'Avenir',
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.04,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.65,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff2d2e30),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          child: Center(
+                                            child: Text(
+                                                "Manage your Google Account",
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.white,
+                                                    fontFamily: 'Avenir',
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("Add another account",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontFamily: 'Avenir',
-                                    fontWeight: FontWeight.bold))
-                          ],
-                        ),
-                        Divider(
-                          color: Colors.white,
-                        ),
-                        Text("Privacy Policy . Terms of service",
-                            style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontFamily: 'Avenir',
-                                fontWeight: FontWeight.bold)),
-                      ],
-                    )),
-              ).show();
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 15),
-              child: Container(
-                child: CircleAvatar(
-                  child: Image.asset("assets/images/profile_img.jpg"),
+                            ],
+                          ),
+                          Divider(
+                            color: Colors.white,
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Icon(
+                                  Icons.person_add_alt_outlined,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("Add another account",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontFamily: 'Avenir',
+                                      fontWeight: FontWeight.bold))
+                            ],
+                          ),
+                          Divider(
+                            color: Colors.white,
+                          ),
+                          Text("Privacy Policy . Terms of service",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontFamily: 'Avenir',
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      )),
+                ).show();
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 8,
+                  width: MediaQuery.of(context).size.width / 12,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.grey, width: 0.2),
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/profile_img.jpg"))),
                 ),
-              ),
-            ),
-          )
+              ))
         ],
       ),
       body: Padding(
@@ -213,9 +221,9 @@ class _HomePageState extends State<HomePage> {
                           builder: (BuildContext c) {
                             return Container(
                               padding: EdgeInsets.only(left: 15),
-                              height: MediaQuery.of(context).size.height * 0.24,
+                              height: MediaQuery.of(context).size.height * 0.26,
                               width: MediaQuery.of(context).size.width,
-                              color: Colors.black,
+                              color: Color(0xff2d2e30),
                               child: Column(
                                 children: [
                                   InkWell(
@@ -425,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Row(
                                     children: [
-                                      InkWell(
+                                      GestureDetector(
                                         onTap: () {},
                                         child: Container(
                                           alignment: Alignment.center,
@@ -444,7 +452,7 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         width: 20,
                                       ),
-                                      InkWell(
+                                      GestureDetector(
                                         onTap: () {
                                           setState(() {
                                             _height = 0;
@@ -513,7 +521,7 @@ _openPopup(context, String id) {
   Alert(
     context: context,
     style: AlertStyle(
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Color(0xff2d2e30),
       animationType: AnimationType.grow,
       overlayColor: Colors.transparent.withOpacity(0.3),
       isCloseButton: true,
@@ -591,7 +599,7 @@ _openPopup(context, String id) {
                 children: [
                   Icon(
                     Icons.share,
-                    color: Colors.black,
+                    color: Color(0xff2d2e30),
                   ),
                   SizedBox(
                     width: 8,
@@ -599,7 +607,7 @@ _openPopup(context, String id) {
                   Text(
                     "Share invitation",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color(0xff2d2e30),
                       fontFamily: 'Avenir',
                       fontWeight: FontWeight.bold,
                     ),

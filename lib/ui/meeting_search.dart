@@ -23,9 +23,10 @@ class _MeetingSearchState extends State<MeetingSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xff2d2e30),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xff2d2e30),
+        elevation: 0.0,
         title: Text("Join with a code"),
         actions: [
           Padding(

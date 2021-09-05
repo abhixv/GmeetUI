@@ -19,9 +19,10 @@ class _MeetingJoinState extends State<MeetingJoin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xff2d2e30),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xff2d2e30),
+        elevation: 0.0,
       ),
       body: Container(
         alignment: Alignment.center,
@@ -96,7 +97,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                       child: Text(
                     "Join",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color(0xff2d2e30),
                       fontFamily: 'Avenir',
                     ),
                   )),
