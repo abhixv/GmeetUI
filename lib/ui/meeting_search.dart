@@ -40,7 +40,12 @@ class _MeetingSearchState extends State<MeetingSearch> {
                           builder: (context) => MeetingJoin(
                                 data: _controller.text,
                               )));
-                } else {}
+                } else {
+                  int dataLength = (_controller.text).length;
+
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(getAlert(dataLength));
+                }
               },
               child: Container(
                 child: Center(
@@ -108,4 +113,18 @@ class _MeetingSearchState extends State<MeetingSearch> {
       ),
     );
   }
+}
+
+SnackBar getAlert(int length) {
+  return SnackBar(
+    content: const Text(
+      'Invalid meeting link',
+      style: TextStyle(
+        color: Colors.grey,
+        fontFamily: 'Avenir',
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    backgroundColor: Colors.white,
+  );
 }
