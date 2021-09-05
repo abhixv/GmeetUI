@@ -1,8 +1,6 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:gmeet/ui/Instant_meeting_page.dart';
-
 import 'package:gmeet/widgets/camera.dart';
 
 class MeetingJoin extends StatefulWidget {
@@ -26,9 +24,9 @@ class _MeetingJoinState extends State<MeetingJoin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2d2e30),
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Color(0xff2d2e30),
+        backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0.0,
         actions: [
           Icon(
@@ -55,7 +53,9 @@ class _MeetingJoinState extends State<MeetingJoin> {
             Text(
               "${getId(data)}",
               style: TextStyle(
-                  color: Colors.white, fontSize: 25, fontFamily: 'Avenir'),
+                  color: Theme.of(context).accentColor,
+                  fontSize: 25,
+                  fontFamily: 'Avenir'),
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -65,7 +65,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: MediaQuery.of(context).size.width / 3,
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
+                        color: Theme.of(context).canvasColor,
                         borderRadius: BorderRadius.circular(10)),
                     child: cameraOn(camOn, pos),
                   ),
@@ -138,12 +138,12 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     width: MediaQuery.of(context).size.width / 4,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Color(0xff89b4f8)),
+                        color: Theme.of(context).cardColor),
                     child: Center(
                         child: Text(
                       "Join",
                       style: TextStyle(
-                        color: Color(0xff2d2e30),
+                        color: Theme.of(context).backgroundColor,
                         fontFamily: 'Avenir',
                       ),
                     )),
@@ -158,9 +158,9 @@ class _MeetingJoinState extends State<MeetingJoin> {
               height: MediaQuery.of(context).size.height * 0.04,
               width: MediaQuery.of(context).size.width / 3,
               decoration: BoxDecoration(
-                  color: Color(0xff2d2e30),
+                  color: Theme.of(context).backgroundColor,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white)),
+                  border: Border.all(color: Theme.of(context).accentColor)),
               child: GestureDetector(
                 onTap: () {},
                 child: Row(
@@ -169,12 +169,12 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     Icon(
                       Icons.present_to_all,
                       size: 18,
-                      color: Color(0xff89b4f8),
+                      color: Theme.of(context).cardColor,
                     ),
                     Text(
                       "Share screen",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).accentColor,
                         fontFamily: 'Avenir',
                       ),
                     ),
@@ -212,7 +212,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                 Text(
                   "Joining information",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).accentColor,
                     fontFamily: 'Avenir',
                     fontSize: 16,
                   ),
@@ -238,7 +238,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                   child: Text(
                     "Meeting Link",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).accentColor,
                       fontFamily: 'Avenir',
                       fontSize: 16,
                     ),

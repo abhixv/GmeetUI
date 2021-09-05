@@ -7,6 +7,7 @@ import 'package:gmeet/utils/routes.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:gmeet/utils/themes.dart';
 import 'package:gmeet/widgets/camera.dart';
 
 List<CameraDescription>? cameras;
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: MyTheme.light(context),
+      darkTheme: MyTheme.dark(context),
       home: HomePage(),
       routes: {
         MyRoutes.meetingSearch: (context) => MeetingSearch(),

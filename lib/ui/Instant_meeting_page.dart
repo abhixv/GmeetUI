@@ -26,15 +26,15 @@ class _InstantMeetingState extends State<InstantMeeting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff2d2e30),
+        backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
-          backgroundColor: Color(0xff2d2e30),
+          backgroundColor: Theme.of(context).backgroundColor,
           elevation: 0.0,
           title: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
               "$id",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.grey),
             ),
           ),
           actions: [
@@ -50,7 +50,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
               },
               child: Icon(
                 Icons.cameraswitch_rounded,
-                color: Colors.white,
+                color: Colors.grey,
               ),
             ),
             SizedBox(
@@ -60,7 +60,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
               padding: const EdgeInsets.only(right: 20),
               child: Icon(
                 Icons.volume_up_rounded,
-                color: Colors.white,
+                color: Colors.grey,
                 size: 30,
               ),
             )
@@ -102,7 +102,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.046,
                   decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Theme.of(context).canvasColor,
                       borderRadius: BorderRadius.circular(10)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,14 +154,14 @@ class _InstantMeetingState extends State<InstantMeeting> {
                   height: MediaQuery.of(context).size.height * 0.046,
                   child: ElevatedButton(
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xff89b4f8))),
+                          backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).cardColor)),
                       onPressed: () {},
                       child: Row(
                         children: [
                           Icon(
                             Icons.share,
-                            color: Color(0xff2d2e30),
+                            color: Theme.of(context).backgroundColor,
                           ),
                           SizedBox(
                             width: 8,
@@ -169,7 +169,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                           Text(
                             "Share invite",
                             style: TextStyle(
-                              color: Color(0xff2d2e30),
+                              color: Theme.of(context).backgroundColor,
                               fontFamily: 'Avenir',
                               fontWeight: FontWeight.bold,
                             ),
@@ -187,7 +187,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                       height: MediaQuery.of(context).size.height * 0.2,
                       width: MediaQuery.of(context).size.width / 4,
                       decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
+                          color: Theme.of(context).canvasColor,
                           borderRadius: BorderRadius.circular(10)),
                       child: cameraOn(camOn, pos),
                     ),
@@ -277,7 +277,7 @@ class _InstantMeetingState extends State<InstantMeeting> {
                         padding: const EdgeInsets.all(15.0),
                         child: Icon(
                           Icons.menu_outlined,
-                          color: Colors.white,
+                          color: Theme.of(context).accentColor,
                           size: 25,
                         ),
                       ),
@@ -293,13 +293,13 @@ micChange(bool micIsPressed) {
   if (micIsPressed == true) {
     return Icon(
       Icons.mic,
-      color: Colors.white,
+      color: Colors.grey,
       size: 25,
     );
   } else {
     return Icon(
       Icons.mic_off,
-      color: Colors.white,
+      color: Colors.grey,
       size: 25,
     );
   }
@@ -309,13 +309,13 @@ changeIcon(bool isPressed) {
   if (isPressed == true) {
     return Icon(
       Icons.video_call,
-      color: Colors.white,
+      color: Colors.grey,
       size: 25,
     );
   } else {
     return Icon(
       Icons.videocam_off,
-      color: Colors.white,
+      color: Colors.grey,
       size: 25,
     );
   }

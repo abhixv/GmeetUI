@@ -23,11 +23,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2d2e30),
+      backgroundColor: Theme.of(context).backgroundColor,
       drawer: MyDrawer(),
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Color(0xff2d2e30),
+        backgroundColor: Theme.of(context).backgroundColor,
         iconTheme: IconThemeData(
           color: Colors.grey,
         ),
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(
           "Meet",
           style: TextStyle(
-              color: Colors.grey,
+              color: Theme.of(context).accentColor,
               fontFamily: 'Avenir',
               fontWeight: FontWeight.w500),
         ),
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     alertPadding: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.14),
                     alertAlignment: Alignment.topCenter,
-                    backgroundColor: Color(0xff2d2e30),
+                    backgroundColor: Theme.of(context).backgroundColor,
                     animationType: AnimationType.grow,
                     overlayColor: Colors.transparent,
                     isCloseButton: true,
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                               "Google",
                               style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.white,
+                                  color: Theme.of(context).accentColor,
                                   fontFamily: 'Avenir',
                                   fontWeight: FontWeight.bold),
                             ),
@@ -106,7 +106,8 @@ class _HomePageState extends State<HomePage> {
                                           "Abhishek Sharma",
                                           style: TextStyle(
                                               fontSize: 18,
-                                              color: Colors.white,
+                                              color:
+                                                  Theme.of(context).accentColor,
                                               fontFamily: 'Avenir',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -114,7 +115,8 @@ class _HomePageState extends State<HomePage> {
                                           "abhixv.sh@gmail.com",
                                           style: TextStyle(
                                               fontSize: 14,
-                                              color: Colors.white,
+                                              color:
+                                                  Theme.of(context).accentColor,
                                               fontFamily: 'Avenir',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -131,17 +133,20 @@ class _HomePageState extends State<HomePage> {
                                                   .width /
                                               1.65,
                                           decoration: BoxDecoration(
-                                              color: Color(0xff2d2e30),
+                                              color: Theme.of(context)
+                                                  .backgroundColor,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                               border: Border.all(
-                                                  color: Colors.white)),
+                                                  color: Theme.of(context)
+                                                      .accentColor)),
                                           child: Center(
                                             child: Text(
                                                 "Manage your Google Account",
                                                 style: TextStyle(
                                                     fontSize: 14,
-                                                    color: Colors.white,
+                                                    color: Theme.of(context)
+                                                        .accentColor,
                                                     fontFamily: 'Avenir',
                                                     fontWeight:
                                                         FontWeight.bold)),
@@ -155,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                           Divider(
-                            color: Colors.white,
+                            color: Theme.of(context).accentColor,
                           ),
                           Row(
                             children: [
@@ -163,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.all(16.0),
                                 child: Icon(
                                   Icons.person_add_alt_outlined,
-                                  color: Colors.white,
+                                  color: Theme.of(context).accentColor,
                                 ),
                               ),
                               SizedBox(
@@ -172,18 +177,18 @@ class _HomePageState extends State<HomePage> {
                               Text("Add another account",
                                   style: TextStyle(
                                       fontSize: 16,
-                                      color: Colors.white,
+                                      color: Theme.of(context).accentColor,
                                       fontFamily: 'Avenir',
                                       fontWeight: FontWeight.bold))
                             ],
                           ),
                           Divider(
-                            color: Colors.white,
+                            color: Theme.of(context).accentColor,
                           ),
                           Text("Privacy Policy . Terms of service",
                               style: TextStyle(
                                   fontSize: 10,
-                                  color: Colors.white,
+                                  color: Theme.of(context).accentColor,
                                   fontFamily: 'Avenir',
                                   fontWeight: FontWeight.bold)),
                         ],
@@ -223,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                               padding: EdgeInsets.only(left: 15),
                               height: MediaQuery.of(context).size.height * 0.26,
                               width: MediaQuery.of(context).size.width,
-                              color: Color(0xff2d2e30),
+                              color: Theme.of(context).backgroundColor,
                               child: Column(
                                 children: [
                                   InkWell(
@@ -355,13 +360,13 @@ class _HomePageState extends State<HomePage> {
                       width: MediaQuery.of(context).size.width * 0.4,
                       height: MediaQuery.of(context).size.height * 0.05,
                       decoration: BoxDecoration(
-                          color: Color(0xff89b4f8),
+                          color: Theme.of(context).cardColor,
                           borderRadius: BorderRadius.circular(5)),
                       child: Center(
                         child: Text(
                           "New meeting",
                           style: TextStyle(
-                              color: Color(0xff1f2a52),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Avenir'),
                         ),
@@ -385,7 +390,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "Join with a code",
                           style: TextStyle(
-                              color: Color(0xff89b4f8),
+                              color: Theme.of(context).cardColor,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Avenir'),
                         ),
@@ -414,7 +419,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Icon(
                               Icons.warning_amber_rounded,
-                              color: Color(0xff89b4f8),
+                              color: Theme.of(context).cardColor,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 10),
@@ -443,7 +448,8 @@ class _HomePageState extends State<HomePage> {
                                           child: Text(
                                             "Learn more",
                                             style: TextStyle(
-                                                color: Color(0xff89b4f8),
+                                                color:
+                                                    Theme.of(context).cardColor,
                                                 fontWeight: FontWeight.w500,
                                                 fontFamily: 'Avenir'),
                                           ),
@@ -521,7 +527,7 @@ _openPopup(context, String id) {
   Alert(
     context: context,
     style: AlertStyle(
-      backgroundColor: Color(0xff2d2e30),
+      backgroundColor: Theme.of(context).backgroundColor,
       animationType: AnimationType.grow,
       overlayColor: Colors.transparent.withOpacity(0.3),
       isCloseButton: true,
@@ -539,7 +545,7 @@ _openPopup(context, String id) {
           child: Text(
             "Here's the link to your meeting",
             style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).accentColor,
                 fontFamily: 'Avenir',
                 fontWeight: FontWeight.bold,
                 fontSize: 14),
@@ -573,7 +579,9 @@ _openPopup(context, String id) {
                 Text(
                   "meet.google.com/$id",
                   style: TextStyle(
-                      color: Colors.white, fontFamily: 'Avenir', fontSize: 14),
+                      color: Theme.of(context).accentColor,
+                      fontFamily: 'Avenir',
+                      fontSize: 14),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 15),

@@ -23,11 +23,17 @@ class _MeetingSearchState extends State<MeetingSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2d2e30),
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Color(0xff2d2e30),
+        backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0.0,
-        title: Text("Join with a code"),
+        title: Text(
+          "Join with a code",
+          style: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Avenir'),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
@@ -71,7 +77,7 @@ class _MeetingSearchState extends State<MeetingSearch> {
                   child: Text(
                     "Enter the code provided by the meeting organizer",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).accentColor,
                         fontSize: 15,
                         fontFamily: 'Avenir'),
                   ),
@@ -85,14 +91,14 @@ class _MeetingSearchState extends State<MeetingSearch> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.06,
                   decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Theme.of(context).canvasColor,
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: TextField(
                       controller: _controller,
                       onTap: () {
                         setState(() {
-                          _join = Color(0xff89b4f8);
+                          _join = Theme.of(context).cardColor;
                         });
                       },
                       style:
