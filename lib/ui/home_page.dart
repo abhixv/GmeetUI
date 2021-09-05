@@ -512,7 +512,7 @@ String getRandomString() {
   String i = s.substring(0, 3) +
       "-" +
       s.substring(3, 7) +
-      "_" +
+      "-" +
       s.substring(5, s.length);
   return i;
 }
