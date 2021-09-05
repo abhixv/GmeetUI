@@ -17,6 +17,11 @@ class MeetingJoin extends StatefulWidget {
 
 class _MeetingJoinState extends State<MeetingJoin> {
   final String data;
+  int pos = 0;
+  bool isPressed = false;
+  bool camOn = false;
+  bool micOn = false;
+  bool micIsPressed = false;
   _MeetingJoinState(this.data);
   @override
   Widget build(BuildContext context) {
@@ -62,9 +67,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10)),
-                    child: Camera(
-                      pos: 1,
-                    ),
+                    child: cameraOn(camOn, pos),
                   ),
                 ],
               ),
@@ -73,32 +76,49 @@ class _MeetingJoinState extends State<MeetingJoin> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.grey)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.video_call,
-                      color: Colors.grey,
-                      size: 30,
-                    ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (camOn == true) {
+                        camOn = false;
+                        isPressed = false;
+                      } else {
+                        camOn = true;
+                        isPressed = true;
+                      }
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.grey)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: changeIcon(isPressed)),
                   ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.grey)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.mic,
-                      color: Colors.grey,
-                      size: 30,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (micOn == true) {
+                        micOn = false;
+                        micIsPressed = false;
+                      } else {
+                        micOn = true;
+                        micIsPressed = true;
+                      }
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.grey)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: micChange(micIsPressed),
                     ),
                   ),
                 ),
@@ -114,7 +134,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                                 InstantMeeting(id: getId(data))));
                   },
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.06,
+                    height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width / 4,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
