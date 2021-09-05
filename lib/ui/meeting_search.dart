@@ -85,7 +85,7 @@ class _MeetingSearchState extends State<MeetingSearch> {
                       controller: _controller,
                       onTap: () {
                         setState(() {
-                          _join = Colors.blue;
+                          _join = Color(0xff89b4f8);
                         });
                       },
                       style:

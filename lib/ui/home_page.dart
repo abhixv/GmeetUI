@@ -355,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                       width: MediaQuery.of(context).size.width * 0.4,
                       height: MediaQuery.of(context).size.height * 0.05,
                       decoration: BoxDecoration(
-                          color: Color(0xff89b5f9),
+                          color: Color(0xff89b4f8),
                           borderRadius: BorderRadius.circular(5)),
                       child: Center(
                         child: Text(
@@ -385,7 +385,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "Join with a code",
                           style: TextStyle(
-                              color: Color(0xff89b5f9),
+                              color: Color(0xff89b4f8),
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Avenir'),
                         ),
@@ -414,7 +414,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Icon(
                               Icons.warning_amber_rounded,
-                              color: Color(0xff89b5f9),
+                              color: Color(0xff89b4f8),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 10),
@@ -443,7 +443,7 @@ class _HomePageState extends State<HomePage> {
                                           child: Text(
                                             "Learn more",
                                             style: TextStyle(
-                                                color: Color(0xff89b5f9),
+                                                color: Color(0xff89b4f8),
                                                 fontWeight: FontWeight.w500,
                                                 fontFamily: 'Avenir'),
                                           ),

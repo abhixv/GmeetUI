@@ -93,7 +93,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.grey)),
                     child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(14.0),
                         child: changeIcon(isPressed)),
                   ),
                 ),
@@ -117,7 +117,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.grey)),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(14.0),
                       child: micChange(micIsPressed),
                     ),
                   ),
@@ -134,11 +134,11 @@ class _MeetingJoinState extends State<MeetingJoin> {
                                 InstantMeeting(id: getId(data))));
                   },
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: MediaQuery.of(context).size.height * 0.06,
                     width: MediaQuery.of(context).size.width / 4,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.blue),
+                        color: Color(0xff89b4f8)),
                     child: Center(
                         child: Text(
                       "Join",
@@ -161,22 +161,25 @@ class _MeetingJoinState extends State<MeetingJoin> {
                   color: Color(0xff2d2e30),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.white)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    Icons.present_to_all,
-                    size: 18,
-                    color: Colors.blue,
-                  ),
-                  Text(
-                    "Share screen",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Avenir',
+              child: GestureDetector(
+                onTap: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      Icons.present_to_all,
+                      size: 18,
+                      color: Color(0xff89b4f8),
                     ),
-                  ),
-                ],
+                    Text(
+                      "Share screen",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Avenir',
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -244,7 +247,7 @@ class _MeetingJoinState extends State<MeetingJoin> {
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: Text(
-                    "meet.googlew.com/${getId(data)}",
+                    "meet.google.com/${getId(data)}",
                     style: TextStyle(
                       color: Colors.grey,
                       fontFamily: 'Avenir',
