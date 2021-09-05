@@ -269,6 +269,6 @@ String getId(String data) {
       "-" +
       data.substring(3, 7) +
       "-" +
-      data.substring(5, data.length);
+      data.substring(7, 10);
   return id;
 }
